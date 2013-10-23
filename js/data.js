@@ -54,7 +54,7 @@ var Data = {
     
     //Change edit button value to submit button.
     var saveDataButton = $('#saveData');
-    saveDataButton.text("Add A Movie");
+    saveDataButton.text("Save Changes");
     saveDataButton.unbind();
     saveDataButton.bind('click', Form.validate);
     Main.showData();
