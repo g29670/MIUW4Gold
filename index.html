@@ -37,12 +37,13 @@
   <div data-role="page" data-title="My Movie Library Startpage"id="home" >   
       <!-- Header -->
       <div data-role="header" data-position="fixed" class="mainColor">
-          <img class="imgcenter" src="images/Logo.png" align="left" />
+          <img class="imgsize" src="images/Logo.png" align="left" width="15%" />
       </div>
   
-    <div data-role="content" >  
+    <div data-role="content" >
+        
       <img src="images/brandnewlogo2.png" width="100%" alt="logomain" class="logomain"/> 
-
+      <ul id="searchForm" data-role="listview" data-filter="true"></ul></br>
       <!-- Call to Action --> 
       <a href="#additem" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Add A Movie</a>
 
@@ -52,9 +53,9 @@
       <!-- Browse Cats -->
       <ul> 
         <div align="center">
-            <p class="getStarted"><strong>Click buttons below to browse Categorys:</strong></p>
-            <a href="#movielib" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">DVDs</a>
-            <a href="#underConstruction" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">VHS Tapes</a>
+            <p class="browse" id="select"><strong>Click buttons below to browse Categorys:</strong></p>
+            <a href="#error404" id="getItem" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">DVDs</a>
+            <a href="#error404" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">VHS Tapes</a>
             <a href="#error404" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">Blu-ray Discs</a>
         </div></br>    
       </ul>
@@ -73,11 +74,14 @@
   </div>
   
   <!-- Start of additem page -->
-  <div data-role="page" data-title="Add A Movie" id="additem" data-add-back-btn="true" >
-  
-    <div data-role="header" class="mainColor">
-      <img src="images/logo.png" class="logo">  
-    </div>
+  <div data-role="page" data-title="Add A Movie" id="additem">
+
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ADD A MOVIE</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
     
     <div data-role="content" class="content">
     
@@ -86,6 +90,7 @@
       <div class="movieinfo">
         <h2><u>Movie Information</u></h2></br>
         <h5>* Required fields</h5></br>
+          <div id="platform-error-message" class="select"><h5>Please choose a platform.</h5></div>
           <label for="platforms" id="select"> <strong>* Platform:</strong></label>
             <select id="platforms">
               <option value="--Choose a Platform--">Choose A Movie Platform</option>
@@ -93,9 +98,8 @@
               <option value="VHS">VHS</option>
               <option value="Blu-ray">Blu-ray</option>
             </select> </br>
-            <div id="platform-error-message" class="error-message">Please choose a platform.</div>
+          <div id="title-error-message" class="error-message"><h5>Please enter a movie title.</h5></div>  
           <label for="movie"> <strong>* Title:</strong> </label><input type="text" placeholder="Blade Runner..." id="movie" /><br/>
-          <div id="title-error-message" class="error-message">Please enter a movie title.</div>
       </div>
       
       <div class="addinfo">
@@ -115,55 +119,48 @@
 
     <!--Footer -->
     <div data-role="footer" data-position="fixed">
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#home" data-icon="home" data-iconpos="left" class="secondaryColor">Home</a></li>
-                <li><a href="#about" data-icon="info" data-iconpos="left" class="mainColor">About App</a></li>
-                <li><a href="#news"data-icon="news" data-iconpos="left" class="mainColor">Blockbuster News</a></li>
-            </ul>
-        </div>   
-    </div>
+      <div data-role="footer" data-position="fixed" class="mainColor">
+        <h3><strong>Movies help you to experience the world!!!</strong></h3>
+      </div>
+    </div>    
   </div>
 
   <!-- Start of Movie Library -->
   <div data-role="page" data-title="My Movie Library" id="movielib" >
   
     <div data-role="header" data-position="fixed" class="mainColor"> 
-      <a href="#additem" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a>
-      <a href="#additem" id="addNew" data-icon="plus" class="ui-btn-right" data-theme="e">Add</a>
-    </div></br></br>
-    
-    <div>
-        <img src="images/logo.png" class="imgcenter">
-    </div>
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a>
+      <a href="#additem" id="addNew" data-icon="plus" class="ui-btn-right" data-theme="e">Add</a></br></br>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
     
     <div data-role="content">  
       <ul id="movielist" data-role="listview" data-filter="true"></ul></br>
-      
+    </div>  
       <!-- Call to Action -->
       <a href="#" id="clearData" data-role="button" data-theme="e" >Clear Movie Library</a>     
-    </div>
+    
     
     <!-- Footer -->
     <div data-role="footer" data-position="fixed">
-    
-      <div data-role="navbar">
-        <ul>
-          <li><a href="#home" data-icon="home" data-iconpos="left" class="secondaryColor">Home</a></li>
-          <li><a href="#about" data-icon="info" data-iconpos="left" class="mainColor">About App</a></li>
-          <li><a href="#news"data-icon="news" data-iconpos="left" class="mainColor">Blockbuster News</a></li>
-        </ul>
-      </div>   
-    </div>
+      <div data-role="footer" data-position="fixed" class="mainColor">
+        <h3><strong>Movies help you to experience the world!!!</strong></h3>
+      </div>
+    </div>    
   </div>
    
   <!-- Start of About Page -->
   <div data-role="page" id="about">
 
       <!-- Header -->
-      <div data-role="header" data-position="fixed" class="mainColor">
-          <h1>ABOUT Information</h1>
+      <div data-role="header" data-position="fixed" class="mainColor"> 
+      <title align="right">ABOUT Information</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
       </div>
+    </div></br>
 
       <!--  About Content -->
       <div data-role="content">
@@ -225,10 +222,13 @@
   <div data-role="page" id="appWorkings" data-add-back-btn="true">
 
       <!-- Header -->
-      <div data-role="header" data-position="fixed" class="mainColor">
-          <h1>ABOUT the Application</h1>
+      <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT the Application</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
       </div>
-
+    </div></br>
+      
       <!--  About Content -->
       <div data-role="content">
          <div>
@@ -256,9 +256,12 @@
   <div data-role="page" id="aboutDeveloper" data-add-back-btn="true">
 
     <!-- Header -->
-    <div data-role="header" data-position="fixed" class="mainColor">
-      <h1>ABOUT the Developer</h1>
-    </div>
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT the Developer</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
 
     <!--  About Content -->
     <div data-role="content">
@@ -287,9 +290,12 @@
   <div data-role="page" id="credits" data-add-back-btn="true">
 
     <!-- Header -->
-    <div data-role="header" data-position="fixed" class="mainColor">
-      <h1>ABOUT Credits </h1>
-    </div>
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT Credits</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
 
     <!--  About Content -->
     <div data-role="content">
@@ -326,9 +332,12 @@
   <div data-role="page" id="otherApp" data-add-back-btn="true">
 
     <!-- Header -->
-    <div data-role="header" data-position="fixed" class="mainColor">
-      <h1>ABOUT the Bronze Application</h1>
-    </div>
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT the Bronze Application</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
 
     <div>
       <img src="images/aboutlogo.png" class="imgcenter" />
@@ -355,30 +364,29 @@
   </div>
 
   <!-- Start of News Page -->
-  <div data-role="page" id="news" data-add-back-btn="true">
+  <div data-role="page" id="news">
 
     <!-- Header -->
-    <div data-role="header" data-position="fixed" class="mainColor">
-      <h1>BLOCKBUSTER NEWS</h1>
-    </div>
-
-    <div>
-      <img src="images/logo.png" class="imgcenter" align="left" />
-    </div>
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <title align="right">BLOCKBUSTER NEWS</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
 
     <!--  News Page Content -->
     <div data-role="content" align="center">  
       <div>
         <ul data-role="drilldown" data-filter="true">
-          <li><a href="#underConstruction"><img src="images/gravity.png" width="10%"/><h4>Gravity Predicted To Win The Box Office For The Third Time</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Movies, Blockbusters</small></h4></a></li></br></br>
+          <li><a href="#news1" ><img src="images/gravity.png" width="10%"/><h4>Gravity Predicted To Win The Box Office For The Third Time</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Movies, Blockbusters</small></h4></a></li></br></br>
 
-          <li><a href="#underConstruction" ><img src="images/legolas.png" width="10%"/><h4>Orlando Bloom Talks About His Return To Middle-Earth On The Set Of The Hobbit</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Tags: Adventure</small></h4></a></li></br></br>
+          <li><a href="#news2" ><img src="images/legolas.png" width="10%"/><h4>Orlando Bloom Talks About His Return To Middle-Earth On The Set Of The Hobbit</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Tags: Adventure</small></h4></a></li></br></br>
 
-          <li><a href="#underConstruction" ><img src="images/angry.png" width="10%"/><h4>Angry Birds': What To Expect When It Crashes Into Theaters.</br><small>by Alex Zalben</small></br><small>2013-10-13<br/>Tags: Animation</small></h4></a></li></br></br>
+          <li><a href="#news3" ><img src="images/angry.png" width="10%"/><h4>Angry Birds': What To Expect When It Crashes Into Theaters.</br><small>by Alex Zalben</small></br><small>2013-10-13</br>Tags: Animation</small></h4></a></li></br></br>
 
-          <li><a href="#underConstruction" ><img src="images/harry.png" width="10%"/><h4>'Harry Potter' Reunion: Daniel Radcliffe And Alan Rickman Reveal What It'd Take</br><small>by Kevin P. Sullivan</small></br><small>2013-10-13<br/>Tags: Adventure, Action</small></h4></a></li></br></br>
+          <li><a href="#news4" ><img src="images/harry.png" width="10%"/><h4>'Harry Potter' Reunion: Daniel Radcliffe And Alan Rickman Reveal What It'd Take</br><small>by Kevin P. Sullivan</small></br><small>2013-10-13<br/>Tags: Adventure, Action</small></h4></a></li></br></br>
 
-          <li><a href="#underConstruction" ><img src="images/dead.png" width="10%"/><h4>'The Walking Dead' Premiere: Here's Everything You Missed</br><small>by Alex Zalben</small></br><small>2013-10-13<br/>Tags: Action, Horror</small></h4></a></li>
+          <li><a href="#news5" ><img src="images/dead.png" width="10%"/><h4>'The Walking Dead' Premiere: Here's Everything You Missed</br><small>by Alex Zalben</small></br><small>2013-10-13<br/>Tags: Action, Horror</small></h4></a></li>
         </ul>
       </div>
     </div>
@@ -395,17 +403,167 @@
     </div>
   </div>
 
+  <!--   Blockbuster Page 1-->
+  <div data-role="page" id="news1" data-add-back-btn="true">
+
+    <!-- Header -->
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Gravity Predicted To Win The Box Office For The Third Time</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
+
+
+    <!--  News Content -->
+    <div data-role="content" class="content">
+
+  
+        <newst class="indent">EXCERPT:</br> 
+         October is typically a month when the horror genre rules the box office, but it doesn't appear that rule is going to hold up this weekend, as once again estimates say that a sci-fi thriller will be taking the number one spot. Movie ticket sales site Fandango has sent out its box office predictions for the upcoming weekend and while the newly released Carrie remake looks like it will have a strong showing, it doesn't look like it will be able to take down the reigning champion, Alfonso Cuaron's Gravity. Should estimates prove to be accurate, this will be the third weekend that Gravity has owned the box office, and the numbers continue to soar. According to the site's chief correspondent, Dave Karger, the film 'is selling more tickets on its third weekend than most movies sell on their first weekend.' There is no guess as to how much money Cuaron's film is expected to make Friday through Sunday, but Fandango says that the film remains on top of their "Fanticipation" charts with a score of 84 out of 100.
+         </br></br>
+         See full story at: http://www.cinemablend.com/new/Gravity-Predicted-Win-Box-Office-Third-Time-Carrie-Open-Strong-39895.html
+        </newst>
+    </div>
+    <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-position="fixed" class="mainColor">
+        <h3><strong>Movies help you to experience the world!!!</strong></h3>
+      </div>
+    </div>    
+  </div> 
+
+  <!--   Blockbuster Page 2-->
+  <div data-role="page" id="news2" data-add-back-btn="true">
+
+    <!-- Header -->
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Orlando Bloom Talks About His Return To Middle-Earth On The Set Of The Hobbit</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
+
+
+    <!--  News Content -->
+    <div data-role="content" class="content">        
+
+      
+        <newst class="indent">EXCERPT:</br>
+         As a member of The Fellowship of the Ring, Orlando Bloom’s Legolas was one of the most important characters in Peter Jackson’s Lord of the Rings trilogy. The great Elf warrior from J.R.R. Tolkien’s novels truly came to life and gave the series some of its best moments, armed with some sweet archery skills and an unlikely friendship John Rhys-Davies’s Gimli. It’s a character that fans absolutely adore, and one that Bloom got the amazing chance to revisit on the set of The Hobbit trilogy. As was revealed earlier today, my last report from the set of the new Hobbit movie was partially incomplete, as myself and a small group of other film journalists on the trip not only had the chance to see some scenes being filmed, but also talk with Orlando Bloom about his return to Middle-earth and the role of Legolas. You can read the complete interview below, in which the actor discusses working backwards from his performance in Lord of the Rings, working with the film’s revolutionary technologies, and the prince-versus-king dynamic that rises from his relationship with Lee Pace’s Thranduil.
+         </br></br>
+         See full story at: http://www.cinemablend.com/new/Orlando-Bloom-Talks-About-His-Return-Middle-Earth-Set-Hobbit-39883.html
+        </newst>
+      </div>
+      <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-position="fixed" class="mainColor">
+        <h3><strong>Movies help you to experience the world!!!</strong></h3>
+      </div>
+    </div>    
+  </div>
+
+  <!--   Blockbuster Page 3-->
+  <div data-role="page" id="news3" data-add-back-btn="true">
+
+    <!-- Header -->
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Angry Birds': What To Expect When It Crashes Into Theaters</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
+
+
+    <!--  News Content -->
+    <div data-role="content" class="content">     
+
+      
+        <newst class="indent">EXCERPT:</br>
+         It's consumed all your time on mobile and video game platforms, and now "Angry Birds" is coming to movie theaters. The previously announced CG-animated film officially has animation vets Fergal Reilly and Clay Kaytis on board to direct the flick, which will debut in theaters on July 1, 2016. But what can we actually expect from an "Angry Birds" movie?
+         </br></br>
+         See full story at: http://www.mtv.com/news/articles/1715375/angry-birds-the-movie-preview.jhtml
+        </newst>
+      </div>
+      <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-position="fixed" class="mainColor">
+        <h3><strong>Movies help you to experience the world!!!</strong></h3>
+      </div>
+    </div>    
+  </div>
+
+  <!--   Blockbuster Page 4-->
+  <div data-role="page" id="news4" data-add-back-btn="true">
+
+    <!-- Header -->
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">'Harry Potter' Reunion: Daniel Radcliffe And Alan Rickman Reveal What It'd Take</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
+
+
+    <!--  News Content -->
+    <div data-role="content" class="content">     
+
+      
+        <newst class="indent">EXCERPT:</br>
+         In the wake of news that J.K. Rowling would return to the wizarding world for a new series of films based on "Fantastic Beasts and Where to Find Them," the minds of "Harry Potter" fans have been racing, thinking of how their favorite characters might return to the big screen.Though the new series of films will follow Newt Scamander in the 1920s, the "Harry Potter" series has dabbled with time travel, so anything is possible. When the question was put to Daniel Radcliffe by The Hollywood Reporter, that was the only way he could imagine Harry Potter showing up again, but for the most part, he thinks he's done. "I don't think I'm going to be coming back.... We can't be doing these characters when we're 40, so there has to be a line drawn," Radcliffe said.
+         </br></br>
+         See full story at: http://www.mtv.com/news/articles/1715382/harry-potter-reunion-rumors-daniel-radcliffe.jhtml
+        </newst>
+      </div>
+      <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-position="fixed" class="mainColor">
+        <h3><strong>Movies help you to experience the world!!!</strong></h3>
+      </div>
+    </div>    
+  </div>
+
+  <!--   Blockbuster Page 5-->
+  <div data-role="page" id="news5" data-add-back-btn="true">
+
+    <!-- Header -->
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">'The Walking Dead' Premiere: Here's Everything You Missed</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
+
+
+    <!--  News Content -->
+    <div data-role="content" class="content">     
+
+      
+        <newst class="indent">"EXCERPT:</br>
+         Sunday night's (October 13) season premiere of "The Walking Dead" was titled "30 Days Without An Accident," but as you can probably imagine, the accidents ramped up — real quick. From zombie attacks to a brand-new threat these post-apocalyptic survivors may not be able to fight, here's every big moment (spoilers ahead) from the episode:
+         </br></br>
+         See full story at: www.mtv.com/news/articles/1715519/walking-dead-season-four-premiere-recap.jhtml
+        </newst>
+      </div>
+     </div> 
+  <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-position="fixed" class="mainColor">
+        <h3><strong>Movies help you to experience the world!!!</strong></h3>
+      </div>
+    </div>    
+  </div>           
+
   <!-- Start of Construction Page -->
   <div data-role="page" id="underConstruction" data-add-back-btn="true">
 
     <!-- Header -->
-    <div data-role="header" data-position="fixed" class="mainColor">
-      <h1>Under Construction</h1>
-    </div>
-
-    <div>
-      <img src="images/logo.png" class="imgcenter" />
-    </div>
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">UNDER CONSTRUCTION</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
 
     <!--  Construction Content -->
     <div data-role="content" class="content">
@@ -424,13 +582,13 @@
   <div data-role="page" id="error404" data-add-back-btn="true">
 
     <!-- Header -->
-    <div data-role="header" data-position="fixed" class="mainColor">
-        <h1>404 Error</h1>
-    </div>
+    <div data-role="header" data-position="fixed" class="mainColor"> 
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">404 ERROR</title>
+      <div>
+        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+      </div>
+    </div></br>
 
-    <div>
-      <img src="images/logo.png" class="imgcenter" />
-    </div>
 
     <!--  Construction Content -->
     <div data-role="content" class="content">
@@ -448,11 +606,12 @@
   <!-- JavaScript under here -->
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.15.form-validator.min.js"></script>
   <script src="js/form.js" type="text/javascript"></script>
   <script src="js/data.js" type="text/javascript"></script>
   <script src="js/main.js" type="text/javascript"></script>
   <script src="js/json.js" type="text/javascript"></script> 
-  
-  
+  <script src="js/search.js" type="text/javascript"></script> 
+   
 </body>
 </html>

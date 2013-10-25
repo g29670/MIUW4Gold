@@ -31,6 +31,7 @@ var Form = {
 	    //Reset Error Messages
 	    getPlats.removeClass('error');
 	    getTitle.removeClass('error');
+	  
 	    pem.hide();
 	    tem.hide();
 
@@ -51,7 +52,7 @@ var Form = {
 	      tem.show();
 	      hasErrors = true;
 	    }
-    
+
 	    //If there were errors, display them on the screen.
 	    if(hasErrors){
 	      evt.preventDefault();
@@ -76,8 +77,9 @@ var Form = {
 	    $('#platform-error-message').hide();
 	    $('#title-error-message').hide();
 
-		$('#platforms').val('--Choose a Platform--').selectmenu('refresh', true);
+		$('#platform').val('--Choose a Platform--').selectmenu('refresh', true);
 	    $('#movie').val('');
+	
 	    Form.setDefaultDate();
         $('#fav').attr("checked", "checked");
     
