@@ -62,6 +62,7 @@ var Main = {
   }
 };
 
+  
 // using document.ready() instead of bind('pageinit') so that this code is called only once.
 // with bind(pageinit), this was being called every time a button was tapped  
 $(document).ready(function() {

@@ -27,7 +27,10 @@
   <!-- StyleSheets under here -->
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
   <link rel="stylesheet" href="css/styles.css" type="text/css" />
-    
+  <style type="text/css">
+      body { background-image:url('images/dbase.png');}
+  </style>
+
   <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
   <script src="js/libs/modernizr.custom.min.js"></script>
 
@@ -37,13 +40,16 @@
   <div data-role="page" data-title="My Movie Library Startpage"id="home" >   
       <!-- Header -->
       <div data-role="header" data-position="fixed" class="mainColor">
-          <img class="imgsize" src="images/Logo.png" align="left" width="15%" />
+          <img src="images/Logo.png" align="left" width="18%"/>
       </div>
   
     <div data-role="content" >
         
-      <img src="images/brandnewlogo2.png" width="100%" alt="logomain" class="logomain"/> 
-      <ul id="searchForm" data-role="listview" data-filter="true"></ul></br>
+      <img src="images/brandnewlogo2.png" width="100%" alt="logomain" class="logomain"/>
+      <div> 
+        <ul id="filter" data-role="listview" data-filter-reveal="true" data-filter="true">
+        </ul>
+      </div> 
       <!-- Call to Action --> 
       <a href="#additem" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Add A Movie</a>
 
@@ -51,14 +57,21 @@
       <a href="#movielib" id="displayData" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right">Search Movie Library</a></br></br>
       
       <!-- Browse Cats -->
-      <ul> 
         <div align="center">
-            <p class="browse" id="select"><strong>Click buttons below to browse Categorys:</strong></p>
-            <a href="#error404" id="getItem" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">DVDs</a>
-            <a href="#error404" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">VHS Tapes</a>
-            <a href="#error404" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">Blu-ray Discs</a>
+            <ul data role="listview">
+              <li><a href="#platforms"></a>
+                <p class="browse" id="select"><strong>Click buttons below to browse Categorys:</strong></p>
+                <ul>
+                   <li>
+                      <a href="#underConstruction" id="" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">DVD<span class="ui-li-count"></span>
+                      </a>
+                      <a href="#underConstruction" id="" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">VHS Tapes</a>
+                      <a href="#underConstruction" id="" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="a">Blu-ray Discs</a>
+                  </li>
+                </ul> 
+              </li>
+            </ul>  
         </div></br>    
-      </ul>
     </div>
 
     <!-- Footer -->
@@ -79,7 +92,7 @@
     <div data-role="header" data-position="fixed" class="mainColor"> 
       <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ADD A MOVIE</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
     
@@ -132,7 +145,7 @@
       <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a>
       <a href="#additem" id="addNew" data-icon="plus" class="ui-btn-right" data-theme="e">Add</a></br></br>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
     
@@ -158,14 +171,14 @@
       <div data-role="header" data-position="fixed" class="mainColor"> 
       <title align="right">ABOUT Information</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
       <!--  About Content -->
       <div data-role="content">
         <div>
-          <img src="images/aboutLogo.png" class="imgsize"  align="center" />
+          <img src="images/aboutLogo.png" class="aboutLogo" align="center" />
       </div>
 
       <div>
@@ -225,14 +238,14 @@
       <div data-role="header" data-position="fixed" class="mainColor"> 
       <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT the Application</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
       
       <!--  About Content -->
       <div data-role="content">
          <div>
-            <img src="images/aboutlogo.png" class="imgcenter" id="aboutLogo.Img"  align="center" />
+            <img src="images/aboutlogo.png" class="aboutLogo" id="aboutLogo.Img"  align="center" />
          </div>
 
          <div>      
@@ -259,14 +272,14 @@
     <div data-role="header" data-position="fixed" class="mainColor"> 
       <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT the Developer</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
     <!--  About Content -->
     <div data-role="content">
       <div>
-        <img src="images/aboutlogo.png" class="imgcenter" />
+        <img src="images/aboutlogo.png" class="aboutLogo"/>
       </div>
 
         <div>      
@@ -293,14 +306,14 @@
     <div data-role="header" data-position="fixed" class="mainColor"> 
       <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT Credits</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
     <!--  About Content -->
     <div data-role="content">
       <div>
-        <img src="images/aboutlogo.png" class="imgcenter" />
+        <img src="images/aboutlogo.png" class="aboutLogo" />
       </div>
         <div>      
           </ul>
@@ -335,12 +348,12 @@
     <div data-role="header" data-position="fixed" class="mainColor"> 
       <a href="#about" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">ABOUT the Bronze Application</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
     <div>
-      <img src="images/aboutlogo.png" class="imgcenter" />
+      <img src="images/aboutlogo.png" class="aboutLogo" />
     </div>
 
     <!--  Other App Content -->
@@ -370,7 +383,7 @@
     <div data-role="header" data-position="fixed" class="mainColor"> 
       <title align="right">BLOCKBUSTER NEWS</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
@@ -378,13 +391,13 @@
     <div data-role="content" align="center">  
       <div>
         <ul data-role="drilldown" data-filter="true">
-          <li><a href="#news1" ><img src="images/gravity.png" width="10%"/><h4>Gravity Predicted To Win The Box Office For The Third Time</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Movies, Blockbusters</small></h4></a></li></br></br>
+          <li><a href="#news1" ><img src="images/gravity.png" width="10%"/><h4>Gravity Predicted To Win The Box Office For The Third Time</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Movies, Blockbusters</small></h4></a></li></br>
 
-          <li><a href="#news2" ><img src="images/legolas.png" width="10%"/><h4>Orlando Bloom Talks About His Return To Middle-Earth On The Set Of The Hobbit</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Tags: Adventure</small></h4></a></li></br></br>
+          <li><a href="#news2" ><img src="images/legolas.png" width="10%"/><h4>Orlando Bloom Talks About His Return To Middle-Earth On The Set Of The Hobbit</br><small>by Eric Eisenberg</small></br><small>2013-10-17<br/>Tags: Tags: Adventure</small></h4></a></li></br>
 
-          <li><a href="#news3" ><img src="images/angry.png" width="10%"/><h4>Angry Birds': What To Expect When It Crashes Into Theaters.</br><small>by Alex Zalben</small></br><small>2013-10-13</br>Tags: Animation</small></h4></a></li></br></br>
+          <li><a href="#news3" ><img src="images/angry.png" width="10%"/><h4>Angry Birds': What To Expect When It Crashes Into Theaters.</br><small>by Alex Zalben</small></br><small>2013-10-13</br>Tags: Animation</small></h4></a></li></br>
 
-          <li><a href="#news4" ><img src="images/harry.png" width="10%"/><h4>'Harry Potter' Reunion: Daniel Radcliffe And Alan Rickman Reveal What It'd Take</br><small>by Kevin P. Sullivan</small></br><small>2013-10-13<br/>Tags: Adventure, Action</small></h4></a></li></br></br>
+          <li><a href="#news4" ><img src="images/harry.png" width="10%"/><h4>'Harry Potter' Reunion: Daniel Radcliffe And Alan Rickman Reveal What It'd Take</br><small>by Kevin P. Sullivan</small></br><small>2013-10-13<br/>Tags: Adventure, Action</small></h4></a></li></br>
 
           <li><a href="#news5" ><img src="images/dead.png" width="10%"/><h4>'The Walking Dead' Premiere: Here's Everything You Missed</br><small>by Alex Zalben</small></br><small>2013-10-13<br/>Tags: Action, Horror</small></h4></a></li>
         </ul>
@@ -410,7 +423,7 @@
     <div data-role="header" data-position="fixed" class="mainColor"> 
       <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Gravity Predicted To Win The Box Office For The Third Time</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
@@ -438,9 +451,9 @@
 
     <!-- Header -->
     <div data-role="header" data-position="fixed" class="mainColor"> 
-      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Orlando Bloom Talks About His Return To Middle-Earth On The Set Of The Hobbit</title>
+      <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Orlando Bloom Talks About His Return To Middle-Earth On The Set Of The Hobbit</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
@@ -468,9 +481,9 @@
 
     <!-- Header -->
     <div data-role="header" data-position="fixed" class="mainColor"> 
-      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Angry Birds': What To Expect When It Crashes Into Theaters</title>
+      <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">Angry Birds': What To Expect When It Crashes Into Theaters</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
@@ -498,9 +511,9 @@
 
     <!-- Header -->
     <div data-role="header" data-position="fixed" class="mainColor"> 
-      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">'Harry Potter' Reunion: Daniel Radcliffe And Alan Rickman Reveal What It'd Take</title>
+      <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">'Harry Potter' Reunion: Daniel Radcliffe And Alan Rickman Reveal What It'd Take</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
@@ -528,9 +541,9 @@
 
     <!-- Header -->
     <div data-role="header" data-position="fixed" class="mainColor"> 
-      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">'The Walking Dead' Premiere: Here's Everything You Missed</title>
+      <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">'The Walking Dead' Premiere: Here's Everything You Missed</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
@@ -539,7 +552,7 @@
     <div data-role="content" class="content">     
 
       
-        <newst class="indent">"EXCERPT:</br>
+        <newst class="indent">EXCERPT:</br>
          Sunday night's (October 13) season premiere of "The Walking Dead" was titled "30 Days Without An Accident," but as you can probably imagine, the accidents ramped up — real quick. From zombie attacks to a brand-new threat these post-apocalyptic survivors may not be able to fight, here's every big moment (spoilers ahead) from the episode:
          </br></br>
          See full story at: www.mtv.com/news/articles/1715519/walking-dead-season-four-premiere-recap.jhtml
@@ -559,15 +572,15 @@
 
     <!-- Header -->
     <div data-role="header" data-position="fixed" class="mainColor"> 
-      <a href="#news" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">UNDER CONSTRUCTION</title>
+      <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">UNDER CONSTRUCTION</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
     <!--  Construction Content -->
     <div data-role="content" class="content">
-      <img src="images/Construction.png" width="100%" alt="construction" class="imgSize"/> 
+      <img src="images/Construction.png" alt="construction" class="imgSize"/> 
     </div>
                 
     <!-- Footer -->
@@ -585,14 +598,14 @@
     <div data-role="header" data-position="fixed" class="mainColor"> 
       <a href="#home" data-add-back-btn="true" data-icon="arrow-l" class="ui-btn-left" data-theme="a">back</a><title align="right">404 ERROR</title>
       <div>
-        <img src="images/logo.png" class="imgcenter" align="left" width="12%">
+        <img src="images/logo.png" class="imgCenter" align="left">
       </div>
     </div></br>
 
 
     <!--  Construction Content -->
     <div data-role="content" class="content">
-      <img src="images/404.png" width="100%" alt="404" class="imgSize"/> 
+      <img src="images/404.png" alt="404" class="imgSize"/> 
     </div>
 
     <!-- Footer -->
